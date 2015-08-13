@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+/* basic styles for black background and crosshair cursor */
+body {
+	background: #000;
+	margin: 0;
+}
+
+canvas {
+	cursor: crosshair;
+	display: block;
+}
+.fourhundred {
+	width: 652px;
+}
+
+.center {
+	/*margin: 0 auto;*/
+}
+.above { z-index:2;}
+#bodyTable{
+				height:100% !important; margin:0; padding:0; width:100% !important;
+			}
+			body, #bodyTable{
+				/*background-color:#00437b;
+				background-repeat:repeat-x; 
+				background-image:url(http://www.cobaltmortgage.com/images/connections/cobaltBG-BlueTrans.png);*/
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:12px;
+			}
+			h1{
+				font-family:Palatino, serif; 
+				font-size:18px; 
+				color:#0067B1;
+			}
+			h2{
+				font-family:Palatino, serif; 
+				font-size:18px;
+				color:#0067B1;
+			}
+			.TOC{
+				text-decoration: none; 
+				color: #000000;
+			}
+			.blueTxt{
+				color:#0067B1;
+				font-weight:bold;
+			}
+			.impTxt{
+				color:#F00;
+				font-weight:bold;
+			}
+			.hire{
+				color:#005ba8;
+				font-weight:bold;
+			}
+			.gold{
+				color:#fdb913;
+				font-weight:bold;
+			}
+			.imgCaption{
+				font-family:Arial, Helvetica, sans-serif; 
+				font-size:10px; 
+				color:#0067B1;
+			}
+			.quo1{
+				color:#56b0e8;	
+			}
+			.quoteR{
+				background-color:#fff;
+				padding:10px;
+				border:solid 2px #56b0e8;
+				-khtml-border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				-webkit-border-top-right-radius: 10px;
+				-moz-border-radius-topright: 10px;
+				-khtml-border-top-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+				-webkit-border-bottom-left-radius: 10px;
+				-moz-border-radius-bottomleft: 10px;
+				-khtml-border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+				-webkit-border-bottom-right-radius: 10px;
+				-moz-border-radius-bottomright: 10px;
+				-khtml-border-bottom-right-radius: 10px;
+			}
+			p.bubble{
+		        position: relative;
+				padding:10px;  
+		        text-align:center;  
+		        background-color: #fff;  
+ 		        border: 2px solid #56b0e8;  
+        		-webkit-border-radius: 30px;  
+        		-moz-border-radius: 30px;  
+        		border-radius: 30px;  
+        		/*-webkit-box-shadow: 2px 2px 4px #888;  
+        		-moz-box-shadow: 2px 2px 4px #888;  
+        		box-shadow: 2px 2px 4px #888;  */
+    		}
+			p.speech{
+		        position: relative;
+				padding:10px;  
+		        text-align: left;  
+		        background-color: #fff;  
+ 		        border: 2px solid #56b0e8;  
+        		-webkit-border-radius: 30px;  
+        		-moz-border-radius: 30px;  
+        		border-radius: 30px;  
+        		/*-webkit-box-shadow: 2px 2px 4px #888;  
+        		-moz-box-shadow: 2px 2px 4px #888;  
+        		box-shadow: 2px 2px 4px #888;  */
+    		}
+			p.speech:before{  
+    			content: ' ';  
+    			position: absolute;  
+    			width: 0;  
+    			height: 0;  
+    			left: 36px;
+				bottom:-16px;  
+    			border: 8px solid;  
+    			border-color: #56b0e8 transparent transparent #56b0e8;  
+			} 
+			p.speech:after  {  
+        		content: ' ';  
+        		position: absolute;  
+        		width: 0;  
+        		height: 0;  
+        		left: 38px;
+				bottom:-11px;  
+        		border: 8px solid;  
+        		border-color: #fff transparent transparent #fff;  
+   		 	}  
+		
+			#templateContainer{
+				border:0;
+			}
+			.preheaderContent{
+				color:#b9e0f7;
+				font-family:Helvetica;
+				font-size:10px;
+				line-height:125%;
+				text-align:left;
+			}
+			.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+				color:#7ccaf7;
+				font-weight:normal;
+				text-decoration:underline;
+			}
+			#templateHeader{
+				border-top:0;
+				border-bottom:0;
+			}
+			#headerImage{
+				display:block;
+				height:auto;
+				max-width:650px !important;
+			}
+			#footerImage{
+				display:block;
+				height:auto;
+				max-width:650px !important;
+			}
+			.blockImage{
+				display:block;
+			}
+			.bodyContent{
+				color:#505050;
+				font-family:Arial, Helvetica, sans-serif;
+				text-align:left;
+			}
+			.templateButton{
+				-moz-border-radius:8px;
+				-webkit-border-radius:8px;
+				background-color:#BBBBBB;
+				border-radius:8px;
+			}
+			.roundE{
+				-moz-border-radius:8px;
+				-webkit-border-radius:8px;
+				background-color:#f4f4f4;
+				border-radius:8px;
+			}
+			.paperBG {
+				background:#dcddde;
+				background: rgba(255, 255, 255, 0.4);
+			}
+			.roundCorners {
+				background-color:#f4f4f4; 
+				padding:10px; 
+				/*margin-bottom:10px;*/ 
+				font-family:Arial, Helvetica, sans-serif; 
+				font-size:12px;
+				text-align:left;
+				vertical-align:text-top;
+				/* CSS3 declaration */
+				border-top-left-radius: 20px;
+				/* Declaration for WebKit browsers like: Safari, Chrome */
+				-webkit-border-top-left-radius: 20px;
+				/* Declaration for Mozilla browsers like FireFox */
+				-moz-border-radius-topleft: 20px;
+				/* Declaration for Linux browsers */
+				-khtml-border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				-webkit-border-top-right-radius: 20px;
+				-moz-border-radius-topright: 20px;
+				-khtml-border-top-right-radius: 20px;
+				border-bottom-left-radius: 20px;
+				-webkit-border-bottom-left-radius: 20px;
+				-moz-border-radius-bottomleft: 20px;
+				-khtml-border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				-webkit-border-bottom-right-radius: 20px;
+				-moz-border-radius-bottomright: 20px;
+				-khtml-border-bottom-right-radius: 20px;
+			}
+			.txtBlock {
+				padding:15px; 
+				padding-top:10px; 
+				padding-bottom:10px; 
+				-moz-border-radius:10px; 
+				-webkit-border-radius:10px; 
+				-khtml-border-radius:10px; 
+				border-radius:10px;
+			}
+			.blueBG {
+				background-color:#b9e0f7; 
+			}
+			.goldBG {
+				background-color:#fdb913;
+			}
+			.winners { 
+				list-style-image: url("http://www.cobaltmortgage.com/images/connections/ulStar-gold.png");
+			}
+			.mtCell{
+				border:solid 1px #56b0e8;
+				background-color:#fff;
+				width:16px;
+				height:18px;
+				text-align:center;
+			}
+			.spCell{
+				border:none;
+				width:16px;
+				height:18px;
+			}
+			.clue{
+				border:none;
+				width:16px;
+				height:18px;
+				font-size:10px;
+				color:#56b0e8;
+				text-align:center;
+				vertical-align:text-top;
+			}
+			.service{
+				position:relative;
+				text-align:left;
+			}
+			.service tr td{
+				vertical-align:top;
+				line-height:16px;
+			}
+			.servTitle{
+				font-size:9px;
+				
+			}
+			.yr{
+				font-size:18px;
+				font-weight:bold;
+				color:#005ba8;
+				width:35px;
+				height:35px;
+				text-align:center;
+			}
+			.pending{
+				background-color:#FFCCFF;
+			}
+			.wordsearch p{
+				font-family:monospace;
+				line-height:4px;
+				font-weight:bold;
+				font-size:16px;
+				text-align:center;				
+			}
+			em{
+				font-weight:bold;
+				color:#005ba8;
+			}
+			.signature{
+				font-family: 'Alex Brush', 'Palace Script MT', 'Rage Italic', "Palatino Linotype", "Book Antiqua", Palatino, serif;
+				font-family:
+				font-style:italic;
+				font-size:45px;
+				color:#56b0e8;
+				text-align:center;
+				position:relative;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			.photoFrame {
+				margin: 0px;
+				padding: 0px;
+				width: 343px;
+				position: relative;
+			}
+			.spacer{
+				font-size:5px;
+			}
+			.padtop{
+				padding-top:10px;
+			}
+			.tab{
+				position:relative;
+				left:10px;	
+			}
+			.tabrow tr:nth-child(even) {
+    			background-color: #b9e0f7;
+			}
+			.tblS tr td{
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			.branch{
+				font-weight:bold;
+				font-size:14px;
+			}
+			.rave{
+				font-weight:bold;
+				font-size:14px; 
+				padding:3px;
+			}
+			.rvRed {
+				background-color:#F00;
+				color:#FFF;
+			}
+			.rvGreen {
+				background-color:#0F0;
+			}
+			.rvBlue {
+				background-color:#00F;
+				color:#FFF;
+			}
+			.rvYellow {
+				background-color:#FF0;
+			}
+			.rvPink {
+				background-color:#F0F;	
+				color:#FFF;
+			}
+			.rvPurple {
+				background-color:#93C;
+				color:#FFF;
+			}
+			.rvGold {
+				background-color:#fdb913;
+				color:#FFF;
+			}
+			.TnR {
+				font-weight:bold;
+				font-size:24px;
+				text-align:center;
+			}
+			.smiley {
+				font-size:24px;
+			}
+			.hidden {
+				display:none;
+			}
+</style>
+</head>
+<body>
+<!--<table width="100%"><tr><td align="center">
+<table bgcolor="#FFFFFF"><tr><td>Hello World!</td></tr></table>
+</td></tr></table>-->
+<!-- setup our canvas element -->
+
+<div id="canvasesdiv" style="position:fixed; height:auto; width:auto;">
+<canvas id="canvas" style="z-index: 1; position:absolute; left:0px; top:0px;">Canvas does not work on your browser.<img src="http://www.cobaltmortgage.com/images/connections/1407/Fireworks.png" width="2550" height="842" style="overflow:hidden;"></canvas>
+
+</div>
+
+
+<!--<div style="position:absolute; width:650px; display:block; margin-left:auto; margin-right:auto; z-index:2; top:100px;">-->
+<div style="position:relative; padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; top:100px; display: block; width: 650px; z-index:2;">
+
+        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+            	<tr>
+                	<td align="center" valign="top"> <!--  style="padding-bottom:40px;" -->
+                    	<!-- // BEGIN CONTAINER -->
+                        <table border="0" cellpadding="0" cellspacing="0" width="650" id="templateContainer">
+                        	<tr>
+                            	<td align="center" valign="top">
+                                    <!-- // BEGIN PREHEADER -->
+                                    <table border="0" cellpadding="10" cellspacing="0" width="650" id="templatePreheader">
+                                        <tr>
+                                            <td align="center" valign="top" style="padding-right:20px; padding-left:20px;">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td valign="top" class="preheaderContent">Welcome to Cobalt Connections, our company newsletter.</td>
+                                                        <td width="20">
+                                                            <br />
+                                                        </td>
+                                                        <td valign="top" width="260" class="preheaderContent" style="text-align:right;">
+Email not displaying correctly? <a href="http://www.cobaltmortgage.com/images/connections/1407/Connections1407.html" target="_blank">View it in your browser</a>.
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- END PREHEADER \\ -->
+                                </td>
+                            </tr>
+                            <tr>
+                            	<td align="center" valign="top">
+                                	<!-- // BEGIN HEADER -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="650" id="templateHeader" >
+                                    	<tr>
+                                        	<td align="center" valign="top">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                	<tr>
+                                                        <td class="headerContent">
+                                                            <img src="http://www.cobaltmortgage.com/images/connections/1207/CobaltConnectionsJuly.png" width="650" height="177" id="headerImage" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- END HEADER \\ -->
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                            	<td align="center" valign="top">
+                                	<table border="0" cellpadding="0" cellspacing="10" width="650" class="paperBG">
+                                    	<tr>
+                                        	<td align="center" valign="top">
+                                            	<table border="0" cellpadding="10" cellspacing="0" width="100%">
+                                                	<tr>
+                                                    	<td align="left" valign="top" class="roundCorners">
+                                                        	<p align="center"><strong style="font-size:16px;">
+                                                        	Welcome to Cobalt Connections, our internal company newsletter.</strong><br />
+                                                            Designed to keep you up to date on the latest happenings, this edition recaps June's news. <br />
+                                                            <a href="mailto:marketing.requests@cobaltmortgage.com?subject=News for Cobalt Connections&body=Please include details about your news item (who, what when, etc.). If you're including photos, thanks for identifying the people in the images.">Please let us know what you think and if you have newsworthy items for next month.</a> </p>
+														</td>	
+                                                    </tr>
+                                                    <tr><td height="0"></td></tr>
+                                                    <tr>
+                                                    	<td align="left" valign="top" class="roundCorners">
+                                                        	<p align="center"><a href="http://www.cobaltmortgage.com/images/connections/1407/Connections1407.html"><img src="http://www.cobaltmortgage.com/images/connections/1407/CTA_Fireworks.png"></a></p>
+														</td>	
+                                                    </tr>
+                                                    
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                
+                                </td>
+                            </tr>
+                            <tr>
+                            	<td align="center" valign="top">
+                                	<!-- // BEGIN BODY -->
+<table border="0" cellpadding="0" cellspacing="0" width="650" class="templateBackground">
+                                    	<tr>
+                                        	<td align="right" colspan="2" valign="top" class="templateBackground">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                	<tr>
+                                                    	<td align="right" valign="top" class="templateBackground">
+                                                            <table border="0" cellpadding="10" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td valign="top" class="paperBG">
+<!-- ######################## Next Row Content  ######################## -->
+                                                                        
+                                                                        <table width="630" border="0" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+<!-- ######################################  Left Column  #####################################  -->
+<!-- ######################################  Left Column  #####################################  -->
+<!-- ######################################  Left Column  #####################################  -->
+                                                                            <td width="250" valign="top">
+                                                                            
+                                                                            <table align="left">
+                                                                            	
+<!-- ######################################  Contents  ########################################  -->
+<tr><td valign="top" class="roundCorners">
+<h1>This Month's News</h1>
+<!--<h3><a href="#letter" class="TOC">Spotlight on California: Mining Mortgages in the Golden State</a></h3>-->
+<!--<h3><a href="#news5" class="TOC">Behind the Screens</a></h3>-->
+<h3><a href="#stats" class="TOC">Cobalt Stats</a></h3>
+<h3><a href="#employee" class="TOC">New Employees</a></h3>
+<h3><a href="#cares" class="TOC">Cobalt Cares Foundation</a></h3>
+<h3><a href="#donjames" class="TOC">Don James Golf Classic</a></h3>
+<h3><a href="#news7" class="TOC">Cobalt Mortgage Makes PSBJ's List of 
+Top 50 Fastest-Growing Companies</a></h3>
+<h3><a href="#news6" class="TOC">Surefire Success Stories</a></h3>
+
+
+<h3><a href="#service" class="TOC">Years of Service</a></h3>
+
+
+
+<h3><a href="#intro" class="TOC">Job Snapshot: Shalon Kershaw</a></h3>
+
+
+<h3><a href="#news" class="TOC">Surefire Update</a></h3>
+<h3><a href="#hr" class="TOC">HR Corner: Time for a vacation?</a></h3>
+
+
+<h3><a href="#news2" class="TOC">Bike Team Tackles STP</a></h3>
+<h3><a href="#raves" class="TOC">Got Raves?</a></h3>
+
+
+<!--<h3><a href="#news3" class="TOC">BolderBoulder Fun Run</a></h3>-->
+<!--<h3><a href="#news8" class="TOC">Long-time Employee <br />Mike Sorensen <br />Bids Farewell</a></h3>-->
+
+<h3><a href="#wedding" class="TOC">Weddings</a></h3>
+<h3><a href="#baby" class="TOC">New Baby</a></h3>
+
+<h3><a href="#funny" class="TOC">Just for Laughs</a></h3>
+
+
+
+<!--<h3><a href="#news4" class="TOC">IT Security: Music Streaming</a></h3>-->
+
+
+
+
+
+
+
+<!--<h3><a href="#spotlight" class="TOC">Spotlight</a></h3>-->
+
+<h3><a href="#production" class="TOC">Production News</a></h3>
+
+<h3><a href="#challenge" class="TOC">Win a gift card in the Connections Challenge!</a></h3>
+<!--<h3><a href="#winner" class="TOC">Last Month's Challenge Winners</a></h3>-->
+
+<!--<h3><a href="#other" class="TOC">Halloween Costume Gallery</a></h3>
+<h3><a href="#remember" class="TOC">In Remembrance of <br />Lynda Constantine</a></h3>-->
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  Contents  ########################################  -->
+
+<!-- ######################################  STATS  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  <h1><a name="stats">Cobalt Stats</a></h1>
+<table>
+<tr>
+  <td class="yr">41</td>
+  <td>Branch Offices</td></tr>
+<tr>
+  <td class="yr">14</td><td>Licensed States</td></tr>
+<tr><td class="yr">11</td><td>States with Branch Offices</td></tr>
+<tr>
+  <td class="yr">4</td><td>Fulfillment Centers</td></tr>
+<tr>
+  <td class="yr">1,055</td>
+  <td>Employees in the month of June</td></tr>
+</table>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  STATS  ############################################  --> 
+
+<!-- ######################################  HIRES  ###########################################  -->
+<tr><td valign="top" class="roundCorners">
+<h1><a name="employee">Let's Extend a Welcome to the Cobalt Employees Who Joined Us in June!</a></h1>
+
+<br /><span class="branch">Ahwatukee, AZ</span><br />
+<strong class="hire">Pam Tinant</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<br /><span class="branch">Austin Lakeway, TX</span><br />
+<strong class="hire">Brian Lee</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+
+<br /><span class="branch">AZ Operations Center</span><br />
+<strong class="hire">Dana Alves</strong><span class="servTitle"> - Doc Drawer</span><br />
+<strong class="hire">Ed Santos</strong><span class="servTitle"> - Underwriter</span><br />
+<strong class="hire">Kathy Jeffries</strong><span class="servTitle"> - Sr. QA Auditor</span><br />
+<strong class="hire">Maria Mohabat</strong><span class="servTitle"> - Sr. QA Auditor</span><br />
+<strong class="hire">Pat Dahn</strong><span class="servTitle"> - Underwriter</span><br />
+<strong class="hire">Ron Clark</strong><span class="servTitle"> - Underwriter</span><br />
+
+
+<br /><span class="branch">Clackamas, OR</span><br />
+<strong class="hire">Cathie Ross</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+
+<br /><span class="branch">Colorado Operations Center</span><br />
+<strong class="hire">Kristin Baker</strong><span class="servTitle"> - Underwriter</span><br />
+
+<br /><span class="branch">Colorado Springs, CO</span><br />
+<strong class="hire">Jeri Layton</strong><span class="servTitle"> - Processor</span><br />
+
+<br /><span class="branch">Corporate - Kirkland, WA</span><br />
+<strong class="hire">Abigail Student</strong><span class="servTitle"> - Marketing Intern</span><br />
+<strong class="hire">Andrea Malchow</strong><span class="servTitle"> - Underwriter</span><br />
+<strong class="hire">Andrew Carey</strong><span class="servTitle"> - Jr Q.A. Auditor</span><br />
+<strong class="hire">David Haskins</strong><span class="servTitle"> - IT Web Applications Developer</span><br />
+<strong class="hire">Emily Michele</strong><span class="servTitle"> - Post Closer</span><br />
+<strong class="hire">Emily Heffernan</strong><span class="servTitle"> - Marketing Coordinator</span><br />
+<strong class="hire">Erik Hanson</strong><span class="servTitle"> - Technical Support</span><br />
+<!--<strong class="hire">Jane Hire</strong><span class="servTitle"> - Human Resources Assistant</span><br />-->
+<strong class="hire">Jessica Chandler</strong><span class="servTitle"> - Office of the President</span><br />
+<strong class="hire">Kevin Mason</strong><span class="servTitle"> - Underwriting Assistant</span><br />
+<strong class="hire">Rachel Johnson</strong><span class="servTitle"> - Lock Desk Specialist</span><br />
+<strong class="hire">Sarah Hartman</strong><span class="servTitle"> - Advertising Compliance Assistant</span><br />
+<strong class="hire">Wendy Skrinski</strong><span class="servTitle"> - Disclosure Desk Specialist</span><br />
+
+<br /><span class="branch">Dallas, TX</span><br />
+<strong class="hire">Jane Reese</strong><span class="servTitle"> - Processor</span><br />
+
+<br /><span class="branch">Denver, CO</span><br />
+<strong class="hire">Sean Houlihan</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<br /><span class="branch">Eastside 520 - Kirkland, WA</span><br />
+<strong class="hire">Joanie Leverett</strong><span class="servTitle"> - Processor</span><br />
+
+<br /><span class="branch">Fort Collins, CO</span><br />
+<strong class="hire">Darcy Gavaldon</strong><span class="servTitle"> - Processing Manager</span><br />
+
+<br /><span class="branch">Fort Worth, TX</span><br />
+<strong class="hire">Sarah Cox</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+
+<br /><span class="branch">Issaquah, WA</span><br />
+<strong class="hire">Susan Wester</strong><span class="servTitle"> - Processor</span><br />
+
+<br /><span class="branch">Kirkland, WA</span><br />
+<strong class="hire">Catherine Oyanagi-Myers</strong><span class="servTitle"> - Processing Assistant</span><br />
+<strong class="hire">Madison Stoa</strong><span class="servTitle"> - Mortgage Marketing Assistant</span><br />
+<strong class="hire">Robin Pratt</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+<strong class="hire">Sydney Barovsky</strong><span class="servTitle"> - Mortgage Marketing Assistant</span><br />
+
+<br /><span class="branch">Litchfield, AZ</span><br />
+<strong class="hire">Cheri Johnson</strong><span class="servTitle"> - Mortgage Marketing Assistant</span><br />
+
+<br /><span class="branch">Manhattan Beach, CA</span><br />
+<strong class="hire">Anita Smith</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+<strong class="hire">Marissa Tizon</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<br /><span class="branch">Puyallup, WA</span><br />
+<strong class="hire">Kyle Long</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+
+<br /><span class="branch">Scottsdale, AZ</span><br />
+<strong class="hire">Lacey Bookspan</strong><span class="servTitle"> - Mortgage Marketing Assistant</span><br />
+
+<br /><span class="branch">Southcenter - Tukwila, WA</span><br />
+<strong class="hire">Arleen Zehm</strong><span class="servTitle"> - Production Partner</span><br />
+<strong class="hire">Greg Martin</strong><span class="servTitle"> - Mortgage Loan Originator</span><br />
+<strong class="hire">Michelle Gibson</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<br /><span class="branch">Tacoma, WA</span><br />
+<strong class="hire">Christina Wieser</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<br /><span class="branch">Vancouver Operations Center, WA</span><br />
+<strong class="hire">Elizabeth Moore</strong><span class="servTitle"> - Underwriter</span><br />
+<strong class="hire">Sharon Corner</strong><span class="servTitle"> - Doc Drawer</span><br />
+<strong class="hire">Shelley Smith</strong><span class="servTitle"> - Funder</span><br />
+
+<br /><span class="branch">Yarrow Bay, WA</span><br />
+<strong class="hire">Dan Dieterich</strong><span class="servTitle"> - Mortgage Loan Originator Assistant</span><br />
+
+<!--<br /><span class="branch">Ahwatukee, AZ</span><br />
+<br /><span class="branch">Austin, TX</span><br />
+<br /><span class="branch">Austin Lakeway, TX</span><br />
+<br /><span class="branch">Apple Valley, MN</span><br />
+<br /><span class="branch">AZ Operations Center</span><br />
+<br /><span class="branch">AZ Fulfillment Center</span><br />
+<br /><span class="branch">Beaverton, OR</span><br />
+<br /><span class="branch">Bellevue, WA</span><br />
+<br /><span class="branch">Bellevue SE - Bellevue, WA</span><br />
+<br /><span class="branch">Bellingham, WA</span><br />
+<br /><span class="branch">Bellingham Gallery, WA</span><br />
+<br /><span class="branch">Beverly Hills, CA</span><br />
+<br /><span class="branch">Boulder, CO</span><br />
+<br /><span class="branch">Briarcliff, TX</span><br />
+<br /><span class="branch">Business Intelligence</span><br />
+<br /><span class="branch">Canyon Park - Bothell, WA</span><br />
+<br /><span class="branch">Clackamas, OR</span><br />
+<br /><span class="branch">Cobalt Direct Lending</span><br />
+<br /><span class="branch">Colorado Operations Center</span><br />
+<br /><span class="branch">Colorado Springs, CO</span><br />
+<br /><span class="branch">Compliance - Kirkland, WA</span><br />
+<br /><span class="branch">Corporate - Kirkland, WA</span><br />
+<br /><span class="branch">Corporate Operations Center</span><br />
+<br /><span class="branch">Dallas, TX</span><br />
+<br /><span class="branch">Denver, CO</span><br />
+<br /><span class="branch">Denton, TX</span><br />
+<br /><span class="branch">Durango, CO</span><br />
+<br /><span class="branch">Eastside 520 - Kirkland, WA</span><br />
+<br /><span class="branch">Eastlake - Seattle, WA</span><br />
+<br /><span class="branch">Everett, WA</span><br />
+<br /><span class="branch">Fort Collins, CO</span><br />
+<br /><span class="branch">Fort Worth, TX</span><br />
+<br /><span class="branch">General Counsel - Kirkland, WA</span><br />
+<br /><span class="branch">Gig Harbor, WA</span><br />
+<br /><span class="branch">Houston, TX</span><br />
+<br /><span class="branch">Houston II, TX</span><br />
+<br /><span class="branch">Houston III, TX</span><br />
+<br /><span class="branch">Issaquah, WA</span><br />
+<br /><span class="branch">Kennewick, WA</span><br />
+<br /><span class="branch">Kirkland, WA</span><br />
+<br /><span class="branch">Kirkland Gateway, WA</span><br />
+<br /><span class="branch">Lake Oswego, OR</span><br />
+<br /><span class="branch">Lake Oswego II, OR</span><br />
+<br /><span class="branch">Lakewood, CO</span><br />
+<br /><span class="branch">Litchfield, AZ</span><br />
+<br /><span class="branch">Manhattan Beach, CA</span><br />
+<br /><span class="branch">NE Portland, OR</span><br />
+<br /><span class="branch">North Salt Lake City, UT</span><br />
+<br /><span class="branch">Olympia, WA</span><br />
+<br /><span class="branch">Plano, TX</span><br />
+<br /><span class="branch">Port Townsend, WA</span><br />
+<br /><span class="branch">Puyallup, WA</span><br />
+<br /><span class="branch">Reno, NV</span><br />
+<br /><span class="branch">San Antonio, TX</span><br />
+<br /><span class="branch">Scottsdale, AZ</span><br />
+<br /><span class="branch">Shreveport, LA</span><br />
+<br /><span class="branch">Silverdale, WA</span><br />
+<br /><span class="branch">Southcenter - Tukwila, WA</span><br />
+<br /><span class="branch">Southlake - Dallas, TX</span><br />
+<br /><span class="branch">South Everett, WA</span><br />
+<br /><span class="branch">Southlake, TX</span><br />
+<br /><span class="branch">Tacoma, WA</span><br />
+<br /><span class="branch">Texas Operations Center</span><br />
+<br /><span class="branch">The Woodlands</span><br />
+<br /><span class="branch">Tulsa, OK</span><br />
+<br /><span class="branch">Valencia, CA</span><br />
+<br /><span class="branch">Vancouver, WA</span><br />
+<br /><span class="branch">Vancouver Fulfillment Center, WA</span><br />
+<br /><span class="branch">West Portland, OR</span><br />
+<br /><span class="branch">Yarrow Bay, WA</span><br />-->
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  HIRES  ###########################################  -->
+
+<!-- ######################################  SERVICE  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  <h1><a name="service">5+ Years of Service in June</a></h1>
+<p align="center">
+<table class="service">
+<!--<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar10.png" alt="10" /></td><td><span class="hire"> Ben Brashen</span><br /><span class="servTitle">Production Partner - Kirkland 06/02/04</span></td></tr>-->
+<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar9.png" alt="9" /></td><td><span class="hire"> Eileen Burke</span><br /><span class="servTitle">Mortgage Loan Originator - Eastlake 06/29/05</span></td></tr>
+<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar8.png" alt="8" /></td><td><span class="hire"> Sandi Jacquart</span><br /><span class="servTitle">Mortgage Loan Originator - Southcenter 06/15/06</span></td></tr>
+<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar5.png" alt="5" /></td><td><span class="hire"> Amanda Froehlich</span><br /><span class="servTitle">Shipping Manager - Corporate Operations Center 06/01/09</span></td></tr>
+<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar5.png" alt="5" /></td><td><span class="hire"> Timi Howe</span><br /><span class="servTitle">Production Partner - Southcenter 06/01/09</span></td></tr>
+<tr><td class="yr"><img src="http://www.cobaltmortgage.com/images/connections/yrStar5.png" alt="5" /></td><td><span class="hire"> Jocelyn Deaver</span><br /><span class="servTitle">Processor - Kirkland 06/22/09</span></td></tr>
+</table>
+</p>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  SERVICE  ############################################  --> 
+
+<!-- ######################################  NEWS 3  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+<h1><a name="news3">CO Employees Run for Fun at BolderBoulder 10k</a></h1>
+<p align="center"><a href="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder00_zps9068dc2a.jpg" target="_blank"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder00_zps49edbfa0.png" border="0" title="Click to view larger image" width="230" height="112" /></a></p>
+<p align="center"><a href="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder02_zpsbf0acf9e.jpg" target="_blank"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder02_zps5a832e0a.png" border="0" title="Click to view larger image" width="230" height="112" /></a></p>
+<p><a href="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder01_zps2a14578a.jpg" target="_blank"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Boulder01_zps85f5cdee.png" border="0" title="Click to view larger image" width="230" height="112" /></a><br /><span class="imgCaption">Left to right: <span class="hire">Brenda Frank</span>, Loan Officer, Greeley; <span class="hire">Michelle Alarcon</span>; <span class="hire">JC Gray</span>, Loan Officer Assistant, Boulder; (friend); and <span class="hire">Kellie Klosterman.</span></p>
+<p>Many Cobalt employees from our Colorado offices and their families participated in the 35th annual BolderBoulder 10k Run on May 26. The event's starting line is positioned at an elevation of 5,275 feet (the lowest point of the race!) and it is said to be one of the most fun and highly acclaimed road races in the world. As you can see by the photos, the runners are motivated by some incredible scenery. Great job, Colorado team!</p>
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ######################################  NEWS 3  ############################################  --> 
+
+<!-- ######################################  NEWS 8  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+<h1><a name="news8">Long-time Employee Mike Sorensen Bids Farewell</a></h1>
+
+<p><a href="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Mike_Sorensen_zps348555ac.jpg" target="_blank"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/Mike_Sorensen_zps07a4e64d.png" width="230" height="155" border="0" title="Click to view larger image" /></a><br /><span class="imgCaption">Left to right: Funding Department members <strong>Belinda Marin</strong>, Post Closing; <strong>Brianna Bray</strong>, Final Docs Specialist; <strong>Kyle Loomis</strong>, Post Closing; <strong>Mike Sorensen</strong>, Scanning Assistant; <strong>Tricia Baird</strong>, Insuring Specialist; <strong>Christy Boyett</strong>, Post Closing Manager; <strong>Ashley Baird</strong>, Post Closing; <strong>Amy Benson</strong>, Shipping; <strong>Rene Sasser</strong>, Post Closing. Front: <strong>Amanda Froehlich</strong>, Shipping Manager.</span>
+
+<p>After working at Cobalt for more than eight years, <span class="hire">Mike Sorensen</span> was given a special send-off at the Slater office in Kirkland last month. His coworkers in the Funding Department presented Mike with a beautiful quilt, handmade by <span class="hire">Rene Sasser</span> and signed by many people who have worked with Mike over the years.</p>
+
+<p>Mike connected with Cobalt directly from a Lake Washington High School work program. Described by his supervisor <span class="hire">Christy Boyett</span> as, "an exemplary employee," he served in a variety of positions, most recently as a scanner in Funding. Cobalt is the only place Mike has ever worked, and he expressed sadness at having to leave. According to Mike, "The people are friendly and nice." Mike is relocating with his family to Eugene, OR, and he will be sorely missed at the Corporate Operations Center in Kirkland. Good luck in your future ventures, Mike!</p>
+
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ######################################  NEWS 8  ############################################  --> 
+
+<!-- ######################################  NEWS 6  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  <h1><a name="news6">Surefire Success Story: Turnkey Auto Emails</a></h1>
+<p><!--[pickup stoplight image from Mortgage Checkup sample PDF in CC folder]-->
+Are you using Turnkey Auto Emails?</p>
+
+<p>Cobalt Loan officers are reporting great responses from Surefire's monthly automated emails. For example, here a couple testimonials about results from the "Bi-Annual Mortgage Review":</p>
+
+<p><strong>"This is awesome! It's been the MOST successful for me so far."</strong><br /> 
+<i>&mdash;<span class="hire">Mark Everts</span>, Eastlake Branch Manager, Seattle, WA.</i></p>
+
+<p><strong>"The Mortgage Review email been very successful for me.  I have received four leads from it so far and have two loans in process.  On top of the leads, I had quite a few past customers reach out who were very pleased that I was keeping in touch with them."</strong><br /> 
+<i>&mdash;<span class="hire">Ryan Wheelwright</span>, Yarrow Bay Branch Manager, Kirkland, WA.</i></p>
+
+<p>Are you using Turnkey Auto Emails? If you're opting out, you could be missing sales opportunities. For more information, contact <br /><a href="mailto:marketing.requests@cobaltmortgage.com">marketing.requests@cobaltmortgage.com</a>.</p>
+
+<p><strong>Remaining 2014 Calendar:</strong></p>
+<p><strong>July:</strong>  Thought of You Letter<br />
+<strong>August:</strong> Neighborhood Activity Report<br />
+<strong>September:</strong> Real Estate Appreciation Data Q1 &amp; Q2<br />
+<strong>October:</strong> Thought of You Letter<br />
+<strong>November:</strong> Neighborhood Activity Report<br />
+<strong>December:</strong> Bi-Annual Mortgage Review<br />
+</p>
+</td></tr>
+ <tr><td height="8"></td></tr>
+<!-- ######################################  NEWS 6  ############################################  -->
+
+<!-- ######################################  BG Filler  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1406-CC/MacklemoreBobble_zpsf9e715c4.png" width="230" height="307"/></p>-->
+<!--<p align="center"><strong style="color:#fdb913; font-size:36px;">We're Cool!</strong></p>-->
+<!--</td></tr>-->
+<!-- ######################################  BG Filler  ############################################  --> 
+
+
+
+<!-- ######################################  Correction  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+  <h1 style="font-family:Palatino, serif; font-size:18px; color:#0067B1; text-align:left"><a name="correction">Correction</a></h1>
+
+<p>In the January issue, we incorrectly listed Michelle Palmer's title. Michelle is Mortgage Loan Originator Assistant to Keane Ng.</p>
+
+</td></tr>-->
+<!--<tr><td height="8"></td></tr>-->
+<!-- ######################################  Corrections  ############################################  --> 
+
+<!-- ######################################  NEWS 2  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  
+<h1><a name="news2">Cobalt Corporate Team <br /> Pedals Seattle-to-Portland</a></h1>
+    
+<p><a href="http://www.cobaltmortgage.com/images/connections/1407/STP.html"><img src="http://www.cobaltmortgage.com/images/connections/1407/STP-Bike.png" width="230" title="Click to view larger image" /></a>
+<br />
+<strong><a href="http://www.cobaltmortgage.com/images/connections/1407/STP.html" style="font-size:16px; color:#fdb913; text-decoration:none;">Click to view gallery</a></strong></span><br />
+<span class="imgCaption">Left to right: <strong>Reed Grosvenor</strong>, <strong>Jim Kraus</strong>, and <strong>Terry VanNostrand</strong>.</p>
+
+<p>On July 12-13, three Cobalt employees from the Kirkland Corporate office were among the 10,000 riders who participated in the annual 200-mile bicycle ride known as the "STP," the largest multi-day bicycle event in the Northwest. Sponsored by Cobalt Mortgage, <span class="hire">Jim Kraus</span>, Controller,  <span class="hire">Reed Grosvenor</span>, Business Analyst, and <span class="hire">Terry VanNostrand</span>, EVP Manager for Cobalt Funding, cycled through the scenic valleys, forests, and farmlands of western Washington and Oregon. Unfortunately, Reed suffered a knee injury en route, but Terry and Jim completed the ride in one and two days, respectively. View a video of Terry crossing the finish line at Holladay Park in NE Portland. Congrats to all three participants for making a go of it!	
+</p>
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  NEWS 2  ############################################  --> 
+
+<!-- ######################################  HR  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+<img src="http://www.cobaltmortgage.com/images/connections/hr_color.png" alt="HR Corner" width="230" height="64" />
+<h1><a name="hr">HR Corner</a></h1>
+
+<h2><span style="color:#56b0e8;">Time for a vacation?</span> <br />
+Taking time off is important to your health and well-being!</h2>
+
+
+<p>As much as we would love to spend every moment with you, Cobalt recognizes the importance of maintaining a healthy work-life balance for employees. Time away from the office helps maintain a healthy mind, promotes emotional and physical well-being, reduces stress, prevents burnout, reduces disease and illness, and promotes a returned increase in focus, motivation and productivity.</p>
+<p><strong>Reminder: Use your accrued vacation<br /> time by December 31!</strong></p>
+<p>Some reminders as you plan your time off:</p>
+<ul>
+<li>You must log your vacation time in Ascentis&mdash;Exempt employees must log vacation days as well.</li>
+<li>Plan ahead so you do not run out of vacation time&mdash;if you plan on taking vacation in November, be sure you don't use your time up before then.</li>
+<li>Cobalt does not permit unpaid time off for vacation purposes.</li>
+<li>Unused, accrued vacation time at the end of a calendar year, to the extent permitted by law, will be forfeited and will not be carried over to the next year or cashed out.</li>
+<li>Management must approve your vacation time prior to your vacation being taken.</li>
+<li>Find your vacation balance on your paystub or by emailing Payroll.</li>
+</ul>
+
+<p>Please address questions regarding time entry and vacation accruals to <br /><a href="mailto:payroll@cobaltmortgage.com">payroll@cobaltmortgage.com</a>. Thanks for reading and enjoy your vacation!</p>
+
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  HR  ############################################  --> 
+
+<!-- ######################################  Raves  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+<p align="center"><a name="raves"><img src="http://www.cobaltmortgage.com/images/connections/GotRaves.png" width="230" height="74" alt="Got Raves?" title="Got Raves?" /></a></p>
+
+<p><strong>Got Raves?</strong> Let us know so we can give them a shout-out here.</p>
+
+<ul style="line-height:22px; position:relative; left:-15px;">
+<li>I have made several IT requests recently, and all of them were addressed promptly and with individual follow-up on everything from password assistance to printer problems. Here at Slater, <br /><span class="rave rvBlue">Ian Dahl</span> and <span class="rave rvGold">James Trottier</span> (IT Support, Corporate Operations, Kirkland, WA) are <strong>both friendly, attentive, and easy to work with</strong>. I really appreciate them!</li>
+
+<li><span class="rave rvGreen">Tamara Newman</span> at the Disclosures Desk is <strong>always there</strong> to help, always has a positive attitude, helps with any questions, is very quick to respond and is always there to do what is <strong>best for the client!</strong></li>
+ 
+<li><span class="rave rvPink">Lori Green</span> in the Funding department seems to always be available (even emailing at 6:00pm!). <strong>Every file she touches is gold</strong> and there are never (knock on wood) any issues when she touches our files.
+</li>
+</ul>
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  Raves  ############################################  --> 
+
+<!-- ######################################  BABY  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+<h1><a name="baby">New Baby</a></h1>
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/Sebastian-Holmes_zps8c689dc6.png" /></p>
+<p>Congratulations to <span class="hire">Willie Holmes</span>, Loan Officer, Kirkland, WA, and his fianc&eacute;, Natasha Wilson, on the birth of their baby boy, Sebastian Asher Holmes. Sebastian was seven lbs., five ounces and 20.5 inches long. He and mom are doing great, and everyone is adapting to new sleep schedules.</p>
+</td></tr>
+<!--<tr><td height="8"></td></tr>-->
+<!-- ######################################  BABY  ############################################  -->
+
+
+
+<!-- ######################################  Rememberance  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending pending">
+  <h1><a name="remember">In Remembrance of <br />Lynda Constantine, <br />Loan Officer</a></h1>
+</td></tr>-->
+<!--<tr><td height="8"></td></tr>-->
+<!-- ######################################  Rememberance  ############################################  --> 
+                                                                            	
+                                                                                </table>
+                                                                            </td>
+                                                                            <td width="10" valign="top"></td> <!-- Middle Column Space -->
+<!-- ######################################  Right Column  ####################################  -->
+<!-- ######################################  Right Column  ####################################  -->
+<!-- ######################################  Right Column  ####################################  -->
+                                                                            <td width="370" valign="top">
+                                                                            	<table align="left">
+<!-- ######################################  LETTER  ##########################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending" >
+	  	<h1><a name="letter">Spotlight on California: Mining Mortgages in the Golden State</a><br />
+<span class="imgCaption">By <span class="hire">Brady Yeager</span>, Area Manager, Washington/California</span></h1>      
+
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1404-CC/CA_images_zps80148aec.png" width="343" height="172" /></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="roundCorners blueBG"><tr><td>
+<p><strong style="text-decoration:underline;">California at a Glance</strong></p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td>Area Manager:</td><td>Brady Yeager</td></tr>
+<tr><td>CA Branch Manager:</td><td>Chris Ledlie</td></tr>
+<tr><td>Operations Center:</td>
+<td>Washington</td></tr>
+<tr><td>Population:</td><td>38 million</td></tr>
+<tr><td>First branch opened: </td><td>Manhattan Beach, Jan. 2014</td></tr>
+<tr><td>Branches: </td><td>1 + 2 satellites</td></tr>
+<tr><td>Total employees: </td><td>15</td></tr>
+</table>
+<br />
+</td></tr></table>
+
+<p>If California were a country, its 2012 GDP of over $2.1 trillion would rank it eighth, just ahead of Russia, Italy and Canada. The 38 million people who populate the massive state's 164,000-sq. miles have more than 100 indigenous languages, rivaling most any other area in the world. And Cobalt has only just begun to tap the enormous potential of this rich lending marketplace.</p>
+
+<p><strong>Impressive production potential</strong><br />
+Reminiscent of the gold rush in the 1800s, the promise of this market is enticing. So much so that many of our competitors targeted California first, later spreading into other, less populated states. It's amazing how successful Cobalt has been thus far without even having a physical presence in the state until recently. Similar to our expansion into other U.S. regions, we've packed up the sterling reputation Cobalt established in the Northwest and are transplanting it into California's fertile valleys, from the Oregon border south to San Diego.</p> 
+
+<p><strong>Big prospecting plans</strong><br />
+Amazingly, 12 percent of Americans live in California. That's a lot of homes and loan potential! While we had previously established a small office in Beverly Hills in 2013 for licensing purposes, we opened our first full-service branch in Manhattan Beach this past January. For the better part of a year, I've been working with our Executive Sales Manager, <span class="hire">Dave Bochsler</span>, and California Branch Manager <span class="hire">Chris Ledlie</span> to map out plans for expanding our presence throughout the state. In the second quarter of 2014 we'll open a branch in San Diego, then turn our focus to the Bay area, where we'll open an office in San Jose by the end of the year. And this is just the start.
+
+<p><strong>Great expectations</strong><br />
+With an experienced leader like Chris Ledlie blazing the trail and proven top producers such as <span class="hire">Linda Buchanan</span> (Senior Loan Officer, Manhattan Beach) already on board, Cobalt is poised to capture an impressive market share in the next year or two. Thanks to the many Cobalt employees who have helped enable this ambitious expansion!
+</p>
+
+
+<p align="center"><img src="http://images.cobaltmortgage.com/Emails_Signatures/brady_yeager.png" width="200" height="35"/></p>
+
+
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ######################################  LETTER  ##########################################  --> 
+
+<!-- ######################################  NEWS 5  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+
+  <h1><a name="news5">Behind the Screens<br /><span style="font-size:16px;">Get a glimpse of the IT Team that keeps you up and running</span><br /><span class="imgCaption">By Robin Ortiz, Manager of IT Support</span></a></h1>
+ 
+<p>Imagine if every one of Cobalt's 1,055 employees called with an IT problem simultaneously? Fortunately, that's unlikely. But we aim to be prepared to handle most any eventuality&mdash;from forgotten passwords and virus attacks to power outages and network crashes.</p>
+ 
+<p>In the company's 13-year history, IT has grown from four people to 21 strong today. Obviously, we recruit brilliant technicians who are creative problem solvers. But believe it or not, tech expertise isn't worth much unless it's paired with excellent customer service skills. So we deliberately hire employees who have the same level of extraordinary people skills as our loan officers. We're proud of our top-notch team, and love it when you take the time to give your techs an occasional "shout out" (see this issue's "Got Raves" below).</p>
+ 
+<p><strong>Meet the team!</strong></p>
+ <p align="center"><a href="http://cobaltmortgage.com/images/connections/1407/it-orgchart.pdf" target="_blank"><img src="http://cobaltmortgage.com/images/connections/1407/it-orgchart.png"></a></p>
+ <p align="center"><a href="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/Ops-Center-control-room_zps9d8e8706.jpg"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/Ops-Center-control-room_zps14a799fe.png" alt="Click for larger image"></a><br /><span class="imgCaption">Ops. Center control room at Kirkland Way Office</span></p>
+ 
+<p><strong>How the IT team deals with stress</strong></p>
+<p>Pranks? Well, yes, we in the IT Department do like to have a bit of fun now and then.  So imagine you are part of IT, and you are in a hurry to get to a user to help them with an issue. You run off and accidentally leave your computer unlocked.</p>
+
+<p>As you know, you are duly warned "Do not leave your computer unlocked or bad things may happen." Well, if you are not at your computer and the call volume has waned, you become a likely candidate for a prank. But what to leave on the computer as a desktop background? David Hasselhoff or Richard Simmons? We make the choice, then minimize all applications so the victim knows what happened. Whatever image we choose, that person will remember to lock their computer the next time they walk away. <br /><br />
+
+<img src="http://cobaltmortgage.com/images/connections/1407/Behind-the-scenes-Hoff-glider.png"><br /><br />
+
+
+<p>It's not that we are mean by nature (well, maybe a little); but we are responsible for a lot of information that can be compromised if a PC is left unlocked for the world to see. So, this our subtle reminder to each other to secure our computer before walking away and helps lighten up a sometimes stressful environment.</p>
+ 
+<p><strong>Helping IT help you</strong></p>
+<p>3 ways you can make it easier for your tech to help with your next problem:</p>
+<ol>
+<li>Give your name, department and PC number when you call or email IT Support.</li>
+<li>State the nature of your problem as clearly as possible.</li>
+<li>State the level of urgency of your problem.</li>
+</ol>
+ 
+<p>I hope that gives you just a little glimpse "behind the screens" of our IT crew. We are continually working to improve our response times and systems to meet the needs of Cobalt's growing staff and branch offices. If you have a suggestion or idea toward that goal, feel free to drop me a line <a href="mailto:robin.ortiz@cobaltmortgage.com">robin.ortiz@cobaltmortgage.com</a>.
+</p>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  NEWS 5  ############################################  -->
+
+<!-- ######################################  Cobalt Cares  #############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  <p align="center"><a name="cares"><img src="http://www.cobaltmortgage.com/images/connections/CobaltCares_logo.png" title="Cobalt Cares Foundation" /></a></p>
+  
+  <h1>Cobalt Cares Foundation <br />
+  Ready for Action!<br /><span class="imgCaption">By <strong>Ann Liberato</strong>, Board President, Cobalt Cares Foundation, Area Manager/Founder, Southcenter Branch, WA</span></h1>
+
+<p class="tab"><strong style="text-decoration:underline;">Description</strong><br />
+The Cobalt Cares Foundation supports initiatives involving education, our youth, homeless help, and the military. By partnering with others in the community where we live and work, we provide opportunities for meaningful involvement and a sustainable organization. We evaluate applications for both ongoing and annual initiatives based on their relevancy to our mission statement and current projects.</p>
+  
+<p class="tab"><strong style="text-decoration:underline;">Mission Statement</strong><br /><strong><i>
+A public nonprofit organization dedicated to serving, partnering with and inspiring the communities in which we live and work.</i></strong></p>
+ 
+<p>We're excited to announce that the Cobalt Cares Foundation is up and running! The new website will be live soon and college scholarships are on track to facilitate partnerships this fall. Marketing materials will be available for loan officers in August. Soon, we will have an announcement regarding our military pillar and will put out a request for volunteers to help at the Union Gospel Mission Fundraiser on October 2.</p>
+
+<p>This month, we're asking for your donations of:</p>
+<ol>
+<li><strong>diapers</strong></li>
+<li><strong>baby formula</strong></li>
+<li><strong>socks</strong> (for kids and adults)</li>
+</ol>
+
+<p>These basic necessities will assist us in supporting our Homeless Help pillar. If you have items to donate, please contact Kristine Moreland in the Kirkland branch. We'd love to see the donation bins overflowing with these vital items. Through July, you'll find bins at the Slater office, Kirkland, Southcenter and Eastlake branches.</p>
+
+<p>If you want to get involved by donating a bit of your time, please let us know by contacting <a href="mailto:destinee.nieto@cobaltmortgage.com">destinee.nieto@cobaltmortgage.com</a>.</p>
+
+
+<p align="center"><img src="http://www.cobaltmortgage.com/images/connections/AnnLiberatoFaux.png" /></p>
+ 
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  Cobalt Cares  #############################################  --> 
+
+<!-- ######################################  Don James  #############################################  --> 
+<tr><td valign="top" class="roundCorners pending" style="background-color:#fdb913;">
+	<table border="0" cellpadding="10" cellspacing="0" class="roundCorners pending" style="background-color:#FFFFFF;"><tr><td>
+  <h1><a name="donjames"><img src="http://www.cobaltmortgage.com/images/connections/donjames.png" width="290" height="113" alt="Don James Golf Classic"></a></h1>
+  
+  <h1>Save the date!</h1>
+  <h1 style="font-size:30px;">Friday, Sept. 5, 2014</h1>
+  
+  <p>Join us in celebrating the 21st Annual Don James Golf Classic presented by Cobalt Mortgage!  Grab your clubs and be a part of the magic&mdash;together we change lives and have a great time doing it! </p>
+  
+  <p style="color:#005ba8;"><strong>In Memory of the Dawgfather</strong> (12.31.32 - 10.20.13)<br>
+Ever since his retirement in 1993, former Husky football coach Don James has served as the honorary chair of the Kirkland Boys & Girls Club Don James Golf Classic.  Sadly, Coach James passed away from pancreatic cancer shortly after last year's tournament. </p>
+
+</td></tr></table>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  Don James  #############################################  -->  
+
+<!-- ######################################  NEWS 7  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+<h1><a name="news7">Cobalt Mortgage Makes PSBJ's List of 
+Top 50 Fastest-Growing Companies</a>
+</h1>
+
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/PSBJ_zps07294e95.png" /></p>
+
+<p>Once again, we're proud to be a ranked 13th on the <i>Puget Sound Business Journal's</i> list of the 50 fastest-growing private companies on Seattle's Eastside. To qualify, companies must have achieved a consistent level of revenue growth between 2011 and 2013. Rankings were be announced July 17 at a dinner and awards gala at the Golf Club at Newcastle in Bellevue, Washington.</p>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  NEWS 7  ############################################  --> 
+
+<!-- ######################################  NEWS 4  ############################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+<table width="340" border="0" cellpadding="0" cellspacing="0" class="roundCorners pending" style="background-color:#ccc;">
+<tr>
+<td><h1><a name="news4">Streaming Music at the Office&mdash;and Other Bad Ideas</a></h1></td><td rowspan="2"><p align="center"><img src="http://www.cobaltmortgage.com/images/connections/security.png"  width="50" height="64"/></p></td></tr>
+<tr><td><span class="imgCaption">By Mike Yates, Information Security Officer</span></td></tr></table>
+
+<p>Here's another in a series of reminders that the use of Pandora, Spotify or other streaming media is taboo, verboten, bad, for at least two reasons. Streaming music:</p>
+<ol>
+<li>Uses network bandwidth that slows down everyone else's connection.</li>
+<li>Causes session disconnects, time-outs and other unpleasantries. If you want to listen to music while you work, perhaps an mp3 player or portable radio would meet your needs.</li>
+</ol>
+
+<p><strong>Can I use Dropbox?</strong><br />
+No, sorry. Use of Dropbox and a number of other file storage/sharing sites is currently blocked. </p>
+
+<p>In addition, online chat programs&mdash;such as Google Talk&mdash;are on the same list. They allow a path for sharing files and potential evilness and, as such, should not be installed or used on company systems.</p>
+
+<p>We continue to be visited by the evils that are wandering the web and <strong><i>really</i></strong> need your cooperation in maintaining a secure environment so we don't end up in tomorrow's news headlines.</p>
+
+<p>Thanks for your help and diligence!</p>
+
+<p align="center"><img src="http://www.cobaltmortgage.com/images/connections/fauxMikeYates.png" width="230" /></p>
+
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ######################################  NEWS 4  ############################################  --> 
+
+<!-- ######################################  INTRO  ##########################################  --> 
+<tr><td valign="top" class="roundCorners">
+
+<a name="intro"><img src="http://www.cobaltmortgage.com/images/connections/job-snapshot-logo.png" alt="Job Snapshot" width="343" height="119" /></a>
+<p>Here we take a moment to meet a coworker and get a quick overview of how they help contribute to the Cobalt Mortgage difference.</p>
+	  	<h1>National Processing Manager/Production Support-Onboarding Manager<br />
+<span class="imgCaption">Shalon Kershaw, Loan Origination Department, Kirkland, WA</span>
+</h1>
+
+<p align="center"><img src="http://images.cobaltmortgage.com/emails_photos/shalon_kershaw.png" width="100" height="140" /></p>
+
+<p><strong>3 activities I do on a typical day:</strong></p>
+<ol>
+<li>Assist with hiring/training new Processing talent, including conducting second-level interviews and five-day trainings.</li>
+<li>Direct daily activities of new hire training and onboarding, such as reviewing our curriculum and post-training surveys for feedback on what we do well and where we can improve.</li>
+<li>Attend regular Operations meetings to help create/maintain a streamlined approach to our procedures.</li>
+</ol>
+
+<p><strong>3 essential skills a Processing/Onboarding Manager needs:</strong></p>
+<ol>
+<li>Solving problems under tight timelines.</li>
+<li>Teaching/coaching ability.</li>
+<li>Customer service. At the end of the day, with all the paper shuffling we do, there are two customers we are here to help—our borrowers and our Loan Officers.</li>
+</ol>
+
+
+<p><strong>The best thing about my job is...</strong>my team. All of the Processors, Production Support team members, and my assistant, Sarah Hursh—who I work with on a daily basis—are the best around!</p>
+
+<p><strong>It's hard to believe, but...</strong>my husband has the same name! Spelled differently (Challan), but pronounced the same! </p>
+
+
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  INTRO  ##########################################  -->
+
+<!-- ######################################  INTRO  ##########################################  --> 
+<!--<tr><td valign="top" class="roundCorners pending">
+
+<a name="intro"><img src="http://www.cobaltmortgage.com/images/connections/job-snapshot-logo.png" alt="Job Snapshot" /></a>
+<p>Sure, you're familiar with the many job titles that appear after your coworkers' names in their email signatures. But do you know what they actually do? Our new "Job Snapshot" feature aims to demystify some of the common job titles at Cobalt Mortgage. Special thanks to Stacey for being the first to share!</p>
+	  	<h1>Condo Project Underwriter<br />
+<span class="imgCaption">Stacey Bailey, Condo Department, Corporate</span>
+</h1>
+
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1403-CC/Stacey_Bailey_frame_zpsb8c7a69e.png" width="100" height="140" /></p>
+
+<p><strong>3 activities I do in a typical day:</strong></p>
+
+<ol>
+<li>Underwrite/approve Conventional condo project submissions, then assist with conditions, as needed</li>
+<li>Answer questions about all different types of condo processes</li>
+<li>Submit exception requests to Fannie Mae for qualifying projects that don't meet their guidelines</li>
+</ol>
+ 
+<p><strong>3 essential skills a good Condo Project Underwriter needs:</strong></p>
+
+<ol>
+<li>Attention to detail and knowledge of Fannie &amp; Freddie guidelines to ensure accurate responses</li>
+<li>Good communication skills&mdash;we are consistently explaining guidelines to Cobalt coworkers and insurance agents with varying levels of underwriting knowledge</li>
+<li>Responsiveness&mdash;getting back to customers in the field quickly, especially in this competitive market</li>
+</ol>
+
+ 
+<p><strong>The best thing about my job is...</strong>"helping coworkers get their condo projects approved&mdash;especially when they've been rejected by other lenders!"</p>
+
+<p><strong>It's hard to believe, but...</strong>"people always say, 'I wouldn't want your job,' but condos aren't really as scary or intimidating as everyone thinks."</p>
+
+
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ######################################  INTRO  ##########################################  --> 
+
+<!-- ######################################  NEWS  ############################################  --> 
+<tr><td valign="top" class="roundCorners">
+  <h1><a name="news">Surefire Update</a></h1>
+  
+<p><span style="font-size:20px; font-weight:bold;">Surefire FAQ of the Month - July</span><br />
+  
+<p><strong style="font-size:18px;">Q:</strong> My client didn't get put on a post-close campaign. What happened?</p>
+ 
+<p><strong style="font-size:18px;">A:</strong> The post-close campaign gets automatically added to a contact when the loan funds; that is, when the status shows "funded" in Point/Processing. Since Surefire only syncs with Point/Processing, once the loan is moved to the Point/Closed folder, it stops syncing. After the loan closes and the status shows "funded," if the loan is moved to the closed folder before the nightly (1:00 a.m. ET) sync, then Surefire can't recognized its "funded" status. Consequently, the post-close campaign does not get added.</p>
+
+<!--<p>For more information, contact <a href="mailto:Josh.Stuart@cobaltmortgage.com">Josh.Stuart@cobaltmortgage.com</a>.
+</p>-->
+
+<p><span style="font-size:20px; font-weight:bold;">Did you know?</span><br />
+ 
+There are hundreds of flyers, emails, and postcards on <a href="http://surefirecrm.com">Surefire</a>.</p>
+ 
+<table border="0" cellpadding="0" cellspacing="5" style="font-size:18px; font-weight:bold; color:#005ba8; padding-left:20px;">
+<tr>
+  <td align="right">346</td>
+  <td>Flyers (including SureFlyer2)</td></tr>
+<tr>
+  <td align="right">390</td>
+  <td>Emails</td></tr>
+<tr>
+  <td align="right">145</td>
+  <td>Postcards</td></tr>
+<tr><td align="right">8</td><td>Campaigns (83 pieces)</td></tr>
+</table>
+
+  <p align="center"><img src="http://www.cobaltmortgage.com/images/connections/surefire.png" /></p>
+  
+  <p align="center" style="font-size:16px; font-weight:bold;" class="blueBG bubble">Next Orientation Training <br />
+  Thurs., August 7, 2014 10:00 AM PDT</p>
+<p>Attention Loan Officers! Here's your next chance to dive into the Surefire CRM and its many powerful features. </p>
+
+<p>For more information about additional Surefire training opportunities, go to <a href="http://intranet/HTML/mkt-Training.html" target="_blank">http://intranet/HTML/mkt-Training.html</a>. </p>
+</p>
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ######################################  NEWS  ############################################  --> 
+
+<!-- ######################################  Wedding  #########################################  -->
+<tr><td valign="top" class="roundCorners">
+<h1><a name="wedding">Weddings</a></h1>
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/Jocelyn-Deaver-wedding-photo_zpsc4dd7e47.png" border="0" width="343" height="343" /></p>   
+<p>On May 9, <span class="hire">Jocelyn Deaver</span>, Loan Processor, Kirkland, WA tied the knot with her betrothed, Grant Bennett. The ceremony was held in Sayulita, Mexico at a beautiful venue overlooking the Pacific Ocean. Friends and family joined the bride and groom for an entire week of wedding celebrations. Here's wishing you a long and healthy life together, Jocelyn and Grant!</p><br>
+
+<p align="center"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1407-CC/Wunmi_zps70581fc1.png" border="0" width="343" height="343" /></p>   
+<p><span class="hire">Wunmi (Lasisi) Mills</span>, Staff Accountant, Corporate Ops Center, Kirkland, WA, married Jason Millson June 14. The wedding was a beautiful, intimate event attended by friends and family at the Salish Lodge & Spa in Snoqualmie, WA. We wish Wunmi and Jason many years of health and happiness together!</p>
+</td></tr>
+<!--<tr><td height="8"></td></tr>-->
+<!-- ######################################  Wedding  #########################################  -->
+
+                                                                            	</table>
+                                                                            </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                  </td>
+                                                                </tr>
+                                                                <tr>
+                                                                	<td valign="top" class="paperBG">
+                                                                    	<table width="100%">
+<!-- ###################################### Other  ###########################################  -->
+<tr><td valign="top" class="roundCorners">
+<h1><a name="funny">Just for Laughs</a></h1>
+<p align="center"><img src="http://www.cobaltmortgage.com/images/connections/1407/gameofloans.png" /></p>
+
+
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ###################################### Other  ###########################################  -->
+                                                                        
+<!-- ###################################### PRODUCTION ########################################  -->
+<tr><td valign="top" class="roundCorners">
+<h1><a name="production">Production News</a></h1>
+<p style="text-align:center; align:center;"><img src="http://www.cobaltmortgage.com/images/connections/1407/ProductionChart.png" width="597" height="715" /></p>
+<p style="text-align:center; align:center;"><img src="http://www.cobaltmortgage.com/images/connections/1407/ProductionChart2.png" width="327" height="947" /></p>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ###################################### PRODUCTION  #######################################  -->
+
+<!-- ###################################### CHALLENGE  ########################################  -->
+<tr><td valign="top" class="roundCorners">
+
+
+<h1><a name="challenge">Connections Limerick Challenge</a> </h1>
+
+<p>It's time to rhyme! Just for fun, take a moment to stretch your creativity and write a limerick to share. Besides bragging rights in your office, you could win $50!</p>
+
+<p><strong>Rules:</strong></p>
+<p>To be eligible to win, your limericks must be in standard limerick form and include:</p>
+<ul>
+<li>One instance of "Cobalt"</li>
+<li>One instance of the city or state in which your office is located.</li>
+</ul>
+
+<p>Two winners, to be chosen by Keith and Ernie, will each receive a $50 Amazon.com gift card and have their limericks published in this newsletter. To help get you going, we've offered the example below&mdash;though we're sure you can do better. If this is your first experience writing a limerick, notice that the last words in lines 1/2/5 rhyme, and the last words in lines 3/4 rhyme.</p>
+
+
+<table width="100%" align="center"><tr><td align="center">
+<table><tr><td align="left">
+<p style="font-style:italic; font-size:14px;" class="blueTxt">There was a CoBALT branch in Perth,<br />
+Whose rates were the lowest on earth.<br />
+Yet the LO's bemoaned,<br />
+"We just can't sell a loan, <br />
+'Cause the journey is more than it's worth.&quot;</p>
+</td></tr></table>
+</td></tr></table>
+
+<p>Send your limericks to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#97;&#108;&#108;&#101;&#110;&#103;&#101;&#64;&#99;&#111;&#98;&#97;&#108;&#116;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#99;&#104;&#97;&#108;&#108;&#101;&#110;&#103;&#101;&#64;&#99;&#111;&#98;&#97;&#108;&#116;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a> by <strong>Friday, August 1</strong>. If you're feeling inspired, feel free to submit up to three entries. Be sure your office is represented and have fun expressing yourself!</p>
+</td></tr>
+<tr><td height="8"></td></tr>
+<!-- ###################################### CHALLENGE  ########################################  -->
+
+<!-- ###################################### WINNER  ###########################################  -->
+<!--<tr><td valign="top" class="roundCorners">
+<h1><a name="winner">Last Month's Connections Challenge Answers and Winners</a></h1>
+
+<h1><a name="challenge"><span class="blueBG roundCorners" style="font-size:24px; color:#ffffff;"><span style="color:#005ba8;">C</span>obalt <span style="color:#005ba8;">M</span>ortgage</span><br /><br />
+Two-word phrases with the initials C &amp; M</a> </h1>
+
+<p align="center"><img src="http://www.cobaltmortgage.com/images/connections/1406/PuzzleSolved.png" width="350" height="278" /></a></p>
+
+<table cellpadding="3" cellspacing="0">
+<tr><td colspan="2">
+<span class="blueTxt">ACROSS</span></td></tr>
+<tr><td>1. </td><td>The prize inside a Dungeness shell. - <span class="hire">CRABMEAT</span></td></tr>
+<tr><td>2. </td><td>An a-maizing place to "stalk" someone. - <span class="hire">CORNMAZE</span></td></tr>
+<tr><td>3. </td><td>Protects your vehicle from accidents. - <span class="hire">CARMAT</span></td></tr>
+<tr><td>4. </td><td>Supervisor at a winery. - <span class="hire">CELLARMASTER</span></td></tr>
+<tr><td>6. </td><td>Stir-fried noodles. - <span class="hire">CHOWMEIN</span></td></tr>
+<tr><td>7. </td><td>As quiet as a... - <span class="hire">CHURCHMOUSE</span></td></tr>
+<tr><td>8. </td><td>Introduced by Xerox in 1959. - <span class="hire">COPYMACHINE</span></td></tr>
+<tr><td>9. </td>
+<td>Converts change into dollars. - <span class="hire">COINMACHINE</span> (or <span class="hire">CASHMACHINE</span>)</td></tr>
+<tr><td>10. </td><td>Job change. - <span class="hire">CAREERMOVE</span></td></tr>
+<tr><td>11. </td><td>You might find a canary in here. - <span class="hire">COALMINE</span></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2">
+<span class="blueTxt">DOWN</span></td></tr>
+<tr><td>1. </td><td>The quickest path to creating a traditional birthday treat. - <span class="hire">CAKEMIX</span></td></tr>
+<tr><td>2. </td><td>Description of something wonderful or remarkable, from a feline point of view. - <span class="hire">CATSMEOW</span></td></tr>
+<tr><td>3. </td><td>Sweet coffee drink available at Starbucks. - <span class="hire">CARMELMACCHIATO</span></td></tr>
+<tr><td>5. </td><td>Fertilizer made by domestic bovines. - <span class="hire">COWMANURE</span></td></tr>
+</table>
+
+<br />
+<p>Congratulations! Your  $25.00 Amazon.com gift cards are on the way.</p>
+
+
+<ul class="winners">
+<li><span class="hire">Betsy Baker</span>, Processor - Everett, WA</li>
+<li><span class="hire">Ian Dahl</span>, IT Support - Kirkland, WA</li>
+<li><span class="hire">James Trottier</span>, IT Analyst - Corp. Operations, Kirkland, WA</li>
+<li><span class="hire">Timi Howe</span>, Production Partner - Tukwila, WA</li>
+</ul>
+<p>Thank you all for sending in your entries!</p>
+
+
+
+</td></tr>
+<tr><td height="8"></td></tr>-->
+<!-- ###################################### WINNER  ###########################################  -->
+
+<!-- ###################################### Other  ###########################################  -->
+
+<!-- ###################################### Other  ###########################################  -->
+<!--<tr><td valign="top" class="roundCorners pending">
+<h1><a name="other">Halloween Costumes</a></h1>
+<h2><a href="http://www.cobaltmortgage.com/images/connections/1311/Gallery.html" target="_blank" style="color:#fdb913; font-family:Verdana, Geneva, sans-serif; font-weight:bold; text-decoration:none;">Click to View the Gallery</a></h2>
+
+<p align="center"><a href="http://www.cobaltmortgage.com/images/connections/1311/Gallery.html" target="_blank"><img src="http://i1339.photobucket.com/albums/o701/cobaltpixelkids/1311-CC/Gallery_zps9118bf77.png" alt="Click to View the Gallery" title="Click to View the Gallery" /></a></p>
+
+
+</td></tr>-->
+<!--<tr><td height="8"></td></tr>-->
+<!-- ###################################### Other  ###########################################  -->
+
+                                                                        </table>
+                                                                    
+                                                                    </td>
+                                                                </tr>
+                                                                
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>                                    <!-- END BODY \\ -->
+                                </td>
+                            </tr>
+                            <tr>
+                            	<td align="center" valign="top">
+                                	<!-- // BEGIN Footer -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="650" id="templateHeader">
+                                    	<tr>
+                                        	<td align="center" valign="top">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                	<tr>
+                                                        <td class="headerContent" valign="top">
+                                                            <img src="http://www.cobaltmortgage.com/images/connections/footerEdge.png" style="max-width:650px;" id="footerImage" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- END Footer \\ -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+</div>
+
+
+<script>
+
+// when animating on canvas, it is best to use requestAnimationFrame instead of setTimeout or setInterval
+// not supported in all browsers though and sometimes needs a prefix, so we need a shim
+window.requestAnimFrame = ( function() {
+	return window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame ||
+				window.mozRequestAnimationFrame ||
+				function( callback ) {
+					window.setTimeout( callback, 1000 / 60 );
+				};
+})();
+
+// now we will setup our basic variables for the demo
+var canvas = document.getElementById( 'canvas' ),
+ctx = canvas.getContext( '2d' ),
+// full screen dimensions
+cw = window.innerWidth,
+ch = window.innerHeight,
+// firework collection
+fireworks = [],
+// particle collection
+particles = [],
+// starting hue
+hue = 120,
+// when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
+limiterTotal = 5,
+limiterTick = 0,
+// this will time the auto launches of fireworks, one launch per 80 loop ticks
+timerTotal = 60,
+timerTick = 0,
+mousedown = false,
+// mouse x coordinate,
+mx,
+// mouse y coordinate
+my;
+		
+// set canvas dimensions
+canvas.width = cw;
+canvas.height = ch;
+
+// now we are going to setup our function placeholders for the entire demo
+
+// get a random number within a range
+function random( min, max ) {
+	return Math.random() * ( max - min ) + min;
+}
+
+// calculate the distance between two points
+function calculateDistance( p1x, p1y, p2x, p2y ) {
+	var xDistance = p1x - p2x,
+			yDistance = p1y - p2y;
+	return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
+}
+
+// create firework
+function Firework( sx, sy, tx, ty ) {
+	// actual coordinates
+	this.x = sx;
+	this.y = sy;
+	// starting coordinates
+	this.sx = sx;
+	this.sy = sy;
+	// target coordinates
+	this.tx = tx;
+	this.ty = ty;
+	// distance from starting point to target
+	this.distanceToTarget = calculateDistance( sx, sy, tx, ty );
+	this.distanceTraveled = 0;
+	// track the past coordinates of each firework to create a trail effect, increase the coordinate count to create more prominent trails
+	this.coordinates = [];
+	this.coordinateCount = 3;
+	// populate initial coordinate collection with the current coordinates
+	while( this.coordinateCount-- ) {
+		this.coordinates.push( [ this.x, this.y ] );
+	}
+	this.angle = Math.atan2( ty - sy, tx - sx );
+	this.speed = 2;
+	this.acceleration = 1.05;
+	this.brightness = random( 50, 70 );
+	// circle target indicator radius
+	this.targetRadius = 1;
+}
+
+// update firework
+Firework.prototype.update = function( index ) {
+	// remove last item in coordinates array
+	this.coordinates.pop();
+	// add current coordinates to the start of the array
+	this.coordinates.unshift( [ this.x, this.y ] );
+	
+	// cycle the circle target indicator radius
+	if( this.targetRadius < 8 ) {
+		this.targetRadius += 0.3;
+	} else {
+		this.targetRadius = 1;
+	}
+	
+	// speed up the firework
+	this.speed *= this.acceleration;
+	
+	// get the current velocities based on angle and speed
+	var vx = Math.cos( this.angle ) * this.speed,
+			vy = Math.sin( this.angle ) * this.speed;
+	// how far will the firework have traveled with velocities applied?
+	this.distanceTraveled = calculateDistance( this.sx, this.sy, this.x + vx, this.y + vy );
+	
+	// if the distance traveled, including velocities, is greater than the initial distance to the target, then the target has been reached
+	if( this.distanceTraveled >= this.distanceToTarget ) {
+		createParticles( this.tx, this.ty );
+		// remove the firework, use the index passed into the update function to determine which to remove
+		fireworks.splice( index, 1 );
+	} else {
+		// target not reached, keep traveling
+		this.x += vx;
+		this.y += vy;
+	}
+}
+
+// draw firework
+Firework.prototype.draw = function() {
+	ctx.beginPath();
+	// move to the last tracked coordinate in the set, then draw a line to the current x and y
+	ctx.moveTo( this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ] );
+	ctx.lineTo( this.x, this.y );
+	ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
+	ctx.stroke();
+	
+	ctx.beginPath();
+	// draw the target for this firework with a pulsing circle
+	ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
+	ctx.stroke();
+}
+
+// create particle
+function Particle( x, y ) {
+	this.x = x;
+	this.y = y;
+	// track the past coordinates of each particle to create a trail effect, increase the coordinate count to create more prominent trails
+	this.coordinates = [];
+	this.coordinateCount = 5;
+	while( this.coordinateCount-- ) {
+		this.coordinates.push( [ this.x, this.y ] );
+	}
+	// set a random angle in all possible directions, in radians
+	this.angle = random( 0, Math.PI * 2 );
+	this.speed = random( 1, 10 );
+	// friction will slow the particle down
+	this.friction = 0.95;
+	// gravity will be applied and pull the particle down
+	this.gravity = 1;
+	// set the hue to a random number +-20 of the overall hue variable
+	this.hue = random( hue - 20, hue + 20 );
+	this.brightness = random( 50, 80 );
+	this.alpha = 1;
+	// set how fast the particle fades out
+	this.decay = random( 0.015, 0.03 );
+}
+
+// update particle
+Particle.prototype.update = function( index ) {
+	// remove last item in coordinates array
+	this.coordinates.pop();
+	// add current coordinates to the start of the array
+	this.coordinates.unshift( [ this.x, this.y ] );
+	// slow down the particle
+	this.speed *= this.friction;
+	// apply velocity
+	this.x += Math.cos( this.angle ) * this.speed;
+	this.y += Math.sin( this.angle ) * this.speed + this.gravity;
+	// fade out the particle
+	this.alpha -= this.decay;
+	
+	// remove the particle once the alpha is low enough, based on the passed in index
+	if( this.alpha <= this.decay ) {
+		particles.splice( index, 1 );
+	}
+}
+
+// draw particle
+Particle.prototype.draw = function() {
+	ctx. beginPath();
+	// move to the last tracked coordinates in the set, then draw a line to the current x and y
+	ctx.moveTo( this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ] );
+	ctx.lineTo( this.x, this.y );
+	ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
+	ctx.stroke();
+}
+
+// create particle group/explosion
+function createParticles( x, y ) {
+	// increase the particle count for a bigger explosion, beware of the canvas performance hit with the increased particles though
+	var particleCount = 72;
+	while( particleCount-- ) {
+		particles.push( new Particle( x, y ) );
+	}
+}
+
+// main demo loop
+function loop() {
+	// this function will run endlessly with requestAnimationFrame
+	requestAnimFrame( loop );
+	
+	// increase the hue to get different colored fireworks over time
+	hue += 0.5;
+	
+	// normally, clearRect() would be used to clear the canvas
+	// we want to create a trailing effect though
+	// setting the composite operation to destination-out will allow us to clear the canvas at a specific opacity, rather than wiping it entirely
+	ctx.globalCompositeOperation = 'destination-out';
+	// decrease the alpha property to create more prominent trails
+	ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+	ctx.fillRect( 0, 0, cw, ch );
+	// change the composite operation back to our main mode
+	// lighter creates bright highlight points as the fireworks and particles overlap each other
+	ctx.globalCompositeOperation = 'lighter';
+	
+	// loop over each firework, draw it, update it
+	var i = fireworks.length;
+	while( i-- ) {
+		fireworks[ i ].draw();
+		fireworks[ i ].update( i );
+	}
+	
+	// loop over each particle, draw it, update it
+	var i = particles.length;
+	while( i-- ) {
+		particles[ i ].draw();
+		particles[ i ].update( i );
+	}
+	
+	// launch fireworks automatically to random coordinates, when the mouse isn't down
+	if( timerTick >= timerTotal ) {
+		if( !mousedown ) {
+			// start the firework at the bottom middle of the screen, then set the random target coordinates, the random y coordinates will be set within the range of the top half of the screen
+			fireworks.push( new Firework( cw / 2, ch, random( 0, cw ), random( 0, ch / 2 ) ) );
+			timerTick = 0;
+		}
+	} else {
+		timerTick++;
+	}
+	
+	// limit the rate at which fireworks get launched when mouse is down
+	if( limiterTick >= limiterTotal ) {
+		if( mousedown ) {
+			// start the firework at the bottom middle of the screen, then set the current mouse coordinates as the target
+			fireworks.push( new Firework( cw / 2, ch, mx, my ) );
+			limiterTick = 0;
+		}
+	} else {
+		limiterTick++;
+	}
+}
+
+// mouse event bindings
+// update the mouse coordinates on mousemove
+canvas.addEventListener( 'mousemove', function( e ) {
+	mx = e.pageX - canvas.offsetLeft;
+	my = e.pageY - canvas.offsetTop;
+});
+
+// toggle mousedown state and prevent canvas from being selected
+canvas.addEventListener( 'mousedown', function( e ) {
+	e.preventDefault();
+	mousedown = true;
+});
+
+canvas.addEventListener( 'mouseup', function( e ) {
+	e.preventDefault();
+	mousedown = false;
+});
+
+// once the window loads, we are ready for some fireworks!
+window.onload = loop;
+
+
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(20,20,150,100);
+
+
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52993814-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
